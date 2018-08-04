@@ -1,0 +1,24 @@
+*** Settings ***
+Documentation           The future employee of the IT-Enterprise presents to you...
+Library                 Selenium2Library
+Suite Setup             Go to homepage
+
+
+*** Variables ***
+${HOMEPAGE}             https://hotline.ua
+${BROWSER}              Firefox
+
+*** Test Cases ***
+How to make money on the iPhone X?
+    It's not a crutch    Apple Iphone X      Apple iPhone X 64GB Space Gray (MQAC2)
+
+*** Keywords ***
+It's not a crutch
+	[Arguments]		    ${searchkey}	${result}
+	Input Text		    id=searchbox	${searchkey}
+	Click Button 	    id=doSearch
+	Wait Until Page Contains 	${result}
+	Go to               https://hotline.ua/mobile-mobilnye-telefony-i-smartfony/apple-iphone-x-64gb-space-gray/
+	
+Go to homepage
+	Open Browser	${HOMEPAGE}		${BROWSER}
